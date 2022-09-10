@@ -1,0 +1,8 @@
+:root {
+    --background-color: rgb(1, 2, 2);
+    --bs-body-bg: rgb(240, 180, 90);
+}
+
+.container {
+    background-color: aquamarine;
+}
