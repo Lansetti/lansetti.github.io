@@ -1,25 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>A4 Paper</title>
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                background-color: #b0c4de; /* blueish gray */
-            }
-            .paper {
-                width: 210mm;
-                height: 297mm;
-                background-color: white;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-        </style>
-    </head>
-    <body>
-        <div class="paper"></div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A4 Paper with Text</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #b0c4de;               /* bluish‑gray */
+            font-family: Georgia, serif;              /* classic reading font */
+        }
+
+        .paper {
+            max-width: 210mm;                         /* A4 width */
+            max-height: 297mm;                        /* A4 height */
+            width: 100%;
+            height: auto;                             /* keep aspect ratio */
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            padding: 20mm;                            /* margin inside the paper */
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-bottom: 8mm;
+            font-size: 24pt;
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 6mm;
+            font-size: 12pt;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        @media print {
+            body { background: none; }
+            .paper { box-shadow: none; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <main class="paper">
+        <h1>Work in Progress</h1>
+
+        <p>
+            ETA 10/2025
+        </p>
+
+    </main>
+</body>
 </html>
