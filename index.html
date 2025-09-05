@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>A4 Paper with Text</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<title>A4 Paper</title>
+<style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html, body { height:100%; }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #b0c4de;               /* bluish‑gray */
-            font-family: Georgia, serif;              /* classic reading font */
-        }
+    body {
+        display:flex;
+        justify-content:center;   /* keep it centered left‑right */
+        align-items:flex-start;   /* align to the top instead of the middle */
+        min-height:100vh;
+        background:#b0c4de;       /* bluish‑gray background */
+        font-family:Georgia,serif;
+        overflow:auto;            /* scroll when the sheet is taller than the window */
+        padding:2rem;             /* small outer margin so the sheet isn’t flush to the edge */
+    }
 
-        .paper {
-            max-width: 210mm;                         /* A4 width */
-            max-height: 297mm;                        /* A4 height */
-            width: 100%;
-            height: auto;                             /* keep aspect ratio */
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 0 10px rgba(0,0,0,.1);
-            padding: 20mm;                            /* margin inside the paper */
-            overflow: hidden;
-        }
+    .paper {
+        width:210mm;               /* exact A4 width */
+        height:297mm;              /* exact A4 height – stays constant */
+        background:#fff;
+        border:1px solid #e0e0e0;
+        box-shadow:0 0 10px rgba(0,0,0,.1);
+        padding:20mm;              /* inner margin for the text */
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start;   /* start at the top inside the sheet */
+    }
 
-        h1 {
-            margin-bottom: 8mm;
-            font-size: 24pt;
-            line-height: 1.2;
-        }
+    h1 { margin-bottom:8mm; font-size:24pt; line-height:1.2; }
+    p  { font-size:12pt; line-height:1.5; }
 
-        p {
-            margin-bottom: 6mm;
-            font-size: 12pt;
-            line-height: 1.5;
-            text-align: justify;
+    @media print{
+        body{background:none; overflow:visible;}
+        .paper{
+            box-shadow:none;
+            margin:0;
+            width:210mm;
+            height:297mm;
         }
+    }
+</style>
 
-        @media print {
-            body { background: none; }
-            .paper { box-shadow: none; margin: 0 auto; }
-        }
-    </style>
 </head>
 <body>
     <main class="paper">
-        <h1>Work in Progress</h1>
-
-        <p>
-            ETA 10/2025
-        </p>
-
+        <h1>Work in progress</h1>
+        <p>10/2025</p>
     </main>
 </body>
 </html>
